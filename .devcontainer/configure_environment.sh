@@ -154,6 +154,17 @@ else
     exit 1
 fi
 
+echo "Changing virtual environment ownership to user group..."
+
+chown -R developer:developer .venv && chown developer:developer poetry.lock
+
+if [ $? -eq 0 ]; then
+    echo "Success!"
+else
+    echo "Failed to change ownership."
+    exit 1
+fi
+
 echo "Success!"
 
 exit 0
