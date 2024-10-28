@@ -16,6 +16,8 @@ ipympl = "^0.9.4"
 scipy = "^1.14.1"
 latex = "^0.7.0"
 kaggle = "^1.6.17"
+pandas = "^2.2.3"
+scikit-learn = "^1.5.2"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.8.0"
