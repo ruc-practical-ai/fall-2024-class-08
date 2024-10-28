@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>reveal.js - Markdown Example</title>
+
+	<link rel="stylesheet" href="./dist/reveal.css">
+	<link rel="stylesheet" href="./dist/theme/black.css" id="theme">
+
+	<link rel="stylesheet" href="./plugin/highlight/monokai.css">
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<div class="slides">
+
+			<!-- Slides are separated by three dashes (the default) -->
+			<section data-markdown data-separator="$x">
+				<script type="text/template">
+					# Reveal.js Demos
+
+					---
+
+					* Demo 1 - Markdown: [markdown.html](markdown.html)
+					* Demo 2 - Math: [math.html](math.html)
+
+					---
+
+					<img src="./images/ruc_practical_ai_logo.svg" style="display: block; margin: 0 auto; " alt="drawing" width="300"/>
+                </script>
+			</section>
+		</div>
+	</div>
+
+	<script src="./dist/reveal.js"></script>
+	<script src="./plugin/markdown/markdown.js"></script>
+	<script src="./plugin/highlight/highlight.js"></script>
+	<script src="./plugin/notes/notes.js"></script>
+	<script src="./plugin/math/math.js"></script>
+
+	<script>
+
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		});
+
+	</script>
+
+</body>
+
+</html>
