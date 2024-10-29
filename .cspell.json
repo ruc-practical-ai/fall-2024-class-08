@@ -27,6 +27,7 @@
         "bokeh",
         "boldsymbol",
         "Boro",
+        "byweekday",
         "cafile",
         "cbar",
         "cbook",
@@ -146,6 +147,7 @@
         "mathtext",
         "matplotlib",
         "mcol",
+        "mdates",
         "Mellin",
         "meshgrid",
         "Minard's",
@@ -255,6 +257,7 @@
         "yscale",
         "ytick",
         "yticklabels",
+        "yticks",
         "zorder"
     ],
     "dictionaries": []
