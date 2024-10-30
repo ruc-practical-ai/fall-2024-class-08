@@ -145,7 +145,7 @@ echo "Configuring Poetry virtual environments..."
 
 echo "Installing repository..."
 
-"$poetry_command" install --with dev --no-root
+"$poetry_command" install --with dev
 
 if [ $? -eq 0 ]; then
     echo "Repository dependencies installed!"
@@ -159,7 +159,7 @@ echo "Changing virtual environment ownership to user group..."
 chown -R developer:developer .venv && chown developer:developer poetry.lock
 
 if [ $? -eq 0 ]; then
-    echo "Success!"
+    echo "Successfully changed ownership!"
 else
     echo "Failed to change ownership."
     exit 1
