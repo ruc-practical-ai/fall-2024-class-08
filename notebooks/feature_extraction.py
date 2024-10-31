@@ -12,7 +12,15 @@ def get_individual_stock_numpy(df, symbol):
     return stock_array
 
 
-def get_targets(
+def extract_list_of_stock_arrays(stocks_df, predictor_symbols):
+    predictor_stock_arrays = []
+    for symbol in predictor_symbols:
+        predictor_stock_numpy = get_individual_stock_numpy(stocks_df, symbol)
+        predictor_stock_arrays.append(predictor_stock_numpy)
+    return predictor_stock_arrays
+
+
+def get_autoregression_targets(
     dates, stocks_df, target_symbol, n_days_history, n_days_forward
 ):
     target_stock_array = get_individual_stock_numpy(stocks_df, target_symbol)
@@ -25,15 +33,7 @@ def get_targets(
     return dates, y_targets_low, y_targets_high
 
 
-def extract_list_of_stock_arrays(stocks_df, predictor_symbols):
-    predictor_stock_arrays = []
-    for symbol in predictor_symbols:
-        predictor_stock_numpy = get_individual_stock_numpy(stocks_df, symbol)
-        predictor_stock_arrays.append(predictor_stock_numpy)
-    return predictor_stock_arrays
-
-
-def generate_flat_feature_array(
+def generate_flat_auto_regression_feature_array(
     dates, n_days_history, n_days_forward, prediction_array
 ):
     flat_samples = []
@@ -49,7 +49,7 @@ def generate_flat_feature_array(
     return x_features
 
 
-def get_features(
+def get_autoregression_features(
     dates, stocks_df, n_days_history, n_days_forward, predictor_symbols
 ):
 
@@ -57,7 +57,7 @@ def get_features(
         stocks_df, predictor_symbols
     )
     prediction_array = np.concatenate(predictor_stock_arrays, axis=1)
-    x_features = generate_flat_feature_array(
+    x_features = generate_flat_auto_regression_feature_array(
         dates, n_days_history, n_days_forward, prediction_array
     )
     return x_features
